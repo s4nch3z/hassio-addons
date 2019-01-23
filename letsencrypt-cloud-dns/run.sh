@@ -13,6 +13,7 @@ CREDENTIALS=$(jq --raw-output ".credentials" ${CONFIG_PATH})
 PROP_SECONDS=$(jq --raw-output ".propagationSeconds" ${CONFIG_PATH})
 
 mkdir -p "$CERT_DIR"
+echo "${CREDENTIALS}" > "${CERT_DIR}/credentials.json"
 
 # Generate new certs
 if [[ ! -d "${CERT_DIR}/live" ]]; then
@@ -22,11 +23,11 @@ if [[ ! -d "${CERT_DIR}/live" ]]; then
     done
 
     echo "${DOMAINS}" > /data/domains.gen
-    certbot certonly --non-interactive --dns-google --dns-google-credentials "${CREDENTIALS}" --dns-google-propagation-seconds "${PROP_SECONDS}" --email "${EMAIL}" --agree-tos --config-dir "${CERT_DIR}" --work-dir "${WORK_DIR}" --preferred-challenges "dns" "${DOMAIN_ARR[@]}"
+    certbot certonly --non-interactive --dns-google --dns-google-credentials "${CERT_DIR}/credentials.json" --dns-google-propagation-seconds "${PROP_SECONDS}" --email "${EMAIL}" --agree-tos --config-dir "${CERT_DIR}" --work-dir "${WORK_DIR}" --preferred-challenges "dns" "${DOMAIN_ARR[@]}"
 
 # Renew certs
 else
-    certbot renew --non-interactive --dns-google --dns-google-credentials "${CREDENTIALS}" --dns-google-propagation-seconds "${PROP_SECONDS}" --config-dir "${CERT_DIR}" --work-dir "${WORK_DIR}" --preferred-challenges "dns"
+    certbot renew --non-interactive --dns-google --dns-google-credentials "${CERT_DIR}/credentials.json" --dns-google-propagation-seconds "${PROP_SECONDS}" --config-dir "${CERT_DIR}" --work-dir "${WORK_DIR}" --preferred-challenges "dns"
 fi
 
 # copy certs to store
