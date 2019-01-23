@@ -14,7 +14,6 @@ PROP_SECONDS=$(jq --raw-output ".propagationSeconds" ${CONFIG_PATH})
 
 mkdir -p "$CERT_DIR"
 echo "${CREDENTIALS}" > "${CERT_DIR}/credentials.json"
-certbot -h certonly
 
 # Generate new certs
 if [[ ! -d "${CERT_DIR}/live" ]]; then
