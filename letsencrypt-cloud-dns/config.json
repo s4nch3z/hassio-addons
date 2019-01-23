@@ -29,5 +29,5 @@
     "credentials": "str",
     "propagationSeconds": "int"
   },
-  "image": "s4nch3z/{arch}-addon-letsencrypt-dns"
+  "image": "s4nch3z/{arch}-addon-letsencrypt-cloud-dns"
 }
