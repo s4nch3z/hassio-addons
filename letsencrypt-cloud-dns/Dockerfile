@@ -6,6 +6,7 @@ ENV LANG C.UTF-8
 
 # Setup base
 RUN apk add --no-cache jq certbot py2-future
+RUN pip install certbot-dns-google
 
 # Copy data
 COPY run.sh /
