@@ -1,5 +1,5 @@
 mqtt:
-  host: {{broker_host}}:{{broker_port}}
+  host: mqtts://{{broker_host}}:{{broker_port}}
   preface: {{preface}}
   state_suffix: {{state_suffix}}
   command_suffix: {{command_suffix}}
