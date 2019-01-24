@@ -1,4 +1,4 @@
 # Changelog
 
-## 1.1
-- First working version
+## 1.3
+- First working version with TLS
