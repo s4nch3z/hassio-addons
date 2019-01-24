@@ -1,6 +1,6 @@
 {
   "name": "SmartThings MQTT Bridge",
-  "version": "1.3",
+  "version": "1.4",
   "slug": "smartthings-mqtt-bridge",
   "description": "SmartThings MQTT Bridge (https://github.com/stjohnjohnson/smartthings-mqtt-bridge)",
   "url": "https://github.com/s4nch3z/hassio-addons",
