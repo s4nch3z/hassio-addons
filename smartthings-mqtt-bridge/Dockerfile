@@ -13,7 +13,6 @@ RUN apk add --no-cache jq nodejs nodejs-npm \
 # Copy data
 COPY template.yml /templates/
 COPY run.sh /
-RUN chmod a+x /run.sh
 
 # We need to percist state, so using data
 ENV CONFIG_DIR=/data
