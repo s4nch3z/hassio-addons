@@ -11,7 +11,7 @@ RUN apk add --no-cache jq nodejs nodejs-npm \
     && npm config set unsafe-perm false
 
 # Copy data
-COPY template.yml /templates/
+COPY template.yaml /templates/
 COPY run.sh /
 
 # We need to percist state, so using data
