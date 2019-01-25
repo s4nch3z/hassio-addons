@@ -1,0 +1,24 @@
+{
+  "name": "Dropbox Sync",
+  "version": "1.0",
+  "slug": "dropbox_sync",
+  "description": "Upload your Hass.io backups to Dropbox",
+  "url": "https://github.com/s4nch3z/hassio-addons",
+  "startup": "before",
+  "stdin": true,
+  "hassio_api": true,
+  "hassio_role": "manager",
+  "boot": "auto",
+  "map": ["backup", "share"],
+  "options": {
+    "oauth_access_token": "<YOUR_ACCESS_TOKEN>",
+    "output": ""
+  },
+  "schema": {
+    "oauth_access_token": "str",
+    "output": "str",
+    "keep_last": "int(0,)?",
+    "filetypes": "str?"
+  },
+  "image": "s4nch3z/{arch}-dropbox-sync"
+}
